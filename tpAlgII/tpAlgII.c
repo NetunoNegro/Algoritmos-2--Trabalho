@@ -2,6 +2,15 @@
 #include <string.h>
 #include "heap.h"
 
+void RemoverEspacoDireita(char palavra[]) {
+    int tamanho = strlen(palavra);
+    
+    while (tamanho > 0 && palavra[tamanho-1] == ' ') {
+        palavra[tamanho-1] = '\0';
+        tamanho--;
+    }
+}
+
 int main() {
     struct heap h;
     struct paciente p;
@@ -30,6 +39,7 @@ int main() {
                 fgets(nome, sizeof(nome), stdin);
                 /* sinaliza o final da string */
                 nome[strcspn(nome, "\n")] = '\0';
+                RemoverEspacoDireita(nome);
 
                 printf("Digite a prioridade do paciente: ");
                 scanf("%d", &prioridade);
@@ -49,6 +59,7 @@ int main() {
                 printf("Digite o nome do paciente: ");
                 fgets(nome, sizeof(nome), stdin);
                 nome[strcspn(nome, "\n")] = '\0';
+                RemoverEspacoDireita(nome);
 
                 printf("Digite a prioridade do paciente: ");
                 scanf("%d", &prioridade);
