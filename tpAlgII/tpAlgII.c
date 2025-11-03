@@ -21,21 +21,19 @@ int main() {
         printf("\nEscolha uma operacao: ");
         scanf("%d", &operacao);
         /* como ha leitura de strings tenho que retirar /n do buffer*/
-        getchar();
+        while(getchar() != '\n'); 
 
         switch(operacao) {
             case 1:
                 printf("Digite o nome do paciente: ");
-                fflush(stdout);
                 /* fgets para evitar overflow e ler espacos em branco*/
                 fgets(nome, sizeof(nome), stdin);
                 /* sinaliza o final da string */
                 nome[strcspn(nome, "\n")] = '\0';
 
                 printf("Digite a prioridade do paciente: ");
-                /*fflush garante que a mensagem apareca antes de pedir entrada*/
-                fflush(stdout);
                 scanf("%d", &prioridade);
+                while(getchar() != '\n'); 
     
                 p = CriaPaciente(nome, prioridade);
                 if(InsereHeap(&h, p))
