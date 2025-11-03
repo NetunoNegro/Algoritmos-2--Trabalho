@@ -26,6 +26,8 @@ int main() {
         printf("3 - Atualizar prioridade de um paciente\n");
         printf("4 - Imprimir heap\n");
         printf("5 - Ordenar Pacientes\n");
+        printf("6 - Checar Heap\n");
+        printf("7 - Heapfy\n");
         printf("0 - Encerrar programa\n");
         printf("\nEscolha uma operacao: ");
         scanf("%d", &operacao);
@@ -53,7 +55,14 @@ int main() {
                 break;
             case 2:
                 p = RemoveHeap(&h);
-                printf("Paciente %s (Prioridade %d) removido.", NomePaciente(&p), PrioridadePaciente(&p));  
+                if(PrioridadePaciente(&p) != -1) 
+                    printf("Paciente %s (Prioridade %d) removido.", NomePaciente(&p), PrioridadePaciente(&p));
+                else   
+                    printf("Fila vazia"); 
+                
+                printf("\nPressione Enter para continuar...");
+                /* espera o usuario apertar qualquer tecla para continuar*/
+                getchar();
                 break;
             case 3:
                 printf("Digite o nome do paciente: ");
@@ -69,6 +78,10 @@ int main() {
                     printf("Prioridade do paciente alterada");
                 else   
                     printf("Paciente nao encontrado");
+
+                printf("\nPressione Enter para continuar...");
+                /* espera o usuario apertar qualquer tecla para continuar*/
+                getchar();
                 break;
             case 4: 
                 ImprimeHeap(&h);
@@ -78,6 +91,24 @@ int main() {
                 break;
             case 5:
                 HeapSort(&h);
+                break;
+            case 6:
+                if(ChecaHeap(&h))
+                    printf("Cumpre os requisitos de Heap");
+                else
+                    printf("Viola as condições do Heap");
+
+                printf("\nPressione Enter para continuar...");
+                /* espera o usuario apertar qualquer tecla para continuar*/
+                getchar();
+                break;
+            case 7:
+                Heapfy(&h);
+                printf("Heapfy aplicado");
+                
+                printf("\nPressione Enter para continuar...");
+                /* espera o usuario apertar qualquer tecla para continuar*/
+                getchar();
                 break;
             case 0:
                 loop = 0;
