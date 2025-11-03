@@ -46,7 +46,18 @@ int main() {
                 printf("Paciente %s (Prioridade %d) removido.", NomePaciente(&p), PrioridadePaciente(&p));  
                 break;
             case 3:
-                printf("Atualizar paciente");
+                printf("Digite o nome do paciente: ");
+                fgets(nome, sizeof(nome), stdin);
+                nome[strcspn(nome, "\n")] = '\0';
+
+                printf("Digite a prioridade do paciente: ");
+                scanf("%d", &prioridade);
+                while(getchar() != '\n');
+                
+                if(AtualizaPrioridadeHeap(&h, nome, prioridade))
+                    printf("Prioridade do paciente alterada");
+                else   
+                    printf("Paciente nao encontrado");
                 break;
             case 4: 
                 ImprimeHeap(&h);

@@ -41,6 +41,10 @@ struct paciente RemoveHeap(struct heap *h);
 /* testa um vetor, retorna 0 se violou condição do Heap e 1 caso contrário */
 int ChecaHeap(struct heap *h);
 
+/* atualiza a prioridade de um elemento no heap com o nome passado pelos parametros
+ retorna 1 se paciente existe e 0 caso contrário*/
+int AtualizaPrioridadeHeap(struct heap *h, char nome[], int prioridade);
+
 /* imprime o nome e prioridade de todos os elementos no Heap */
 void ImprimeHeap(struct heap *h);
 

@@ -99,6 +99,18 @@ int ChecaHeap(struct heap *h) {
     return 1;
 }
 
+int AtualizaPrioridadeHeap(struct heap *h, char nome[], int prioridade) {
+    int i;
+
+    for(i=1; i<=h->tam; i++)
+        if(strcmp(h->pacientes[i].nome, nome) == 0) {
+            h->pacientes[i].prioridade = prioridade;
+            Heapfy(h);
+            return 1;
+        }
+    return 0;
+}
+
 void ImprimeHeap(struct heap *h) {
     int i;
 
