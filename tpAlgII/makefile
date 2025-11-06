@@ -6,10 +6,10 @@ LDFLAGS = -lm
 CC = gcc
 
 # arquivos-objeto
-	objects = tpAlgII.o heap.o
+	objects = tpAlgII.o heap.o ordena.o
 
-tpAlgII: tpAlgII.o heap.o
-	$(CC) -o tpAlgII tpAlgII.o heap.o $(LDFLAGS)
+tpAlgII: tpAlgII.o heap.o ordena.o
+	$(CC) -o tpAlgII tpAlgII.o heap.o ordena.o $(LDFLAGS)
 
 fila.o: heap.c
 	$(CC) -c $(CFLAGS) heap.c
