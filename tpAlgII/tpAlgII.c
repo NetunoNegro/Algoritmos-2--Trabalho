@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "heap.h"
+#include "ordena.h"
 
 void RemoverEspacoDireita(char palavra[]) {
     int tamanho = strlen(palavra);
@@ -28,6 +29,7 @@ int main() {
         printf("5 - Ordenar Pacientes\n");
         printf("6 - Checar Heap\n");
         printf("7 - Heapfy\n");
+        printf("8 - Compara desempenho de Algoritmos de ordenação\n");
         printf("0 - Encerrar programa\n");
         printf("\nEscolha uma operacao: ");
         scanf("%d", &operacao);
@@ -90,7 +92,7 @@ int main() {
                 getchar();
                 break;
             case 5:
-                HeapSort(&h);
+                HeapSort(&h); /* ta errado , vou arrumar*/
                 break;
             case 6:
                 if(ChecaHeap(&h))
@@ -109,6 +111,9 @@ int main() {
                 printf("\nPressione Enter para continuar...");
                 /* espera o usuario apertar qualquer tecla para continuar*/
                 getchar();
+                break;
+            case 8:
+                compara_ordenacao(1024); /* envia tamanho do vetor, integer, padrão 1024*/
                 break;
             case 0:
                 loop = 0;
