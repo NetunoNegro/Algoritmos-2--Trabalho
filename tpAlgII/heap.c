@@ -138,15 +138,17 @@ void SacodeHeap(struct heap *h, int tam) {
     }
 }
 
-
 void HeapSort(struct heap *h){
     int i;
     struct paciente aux;
-    Heapfy(h);
-    for (i = h->tam; i > 1; i--){
-        aux = h->pacientes[1];
-        h->pacientes[1] = h->pacientes[i];
-        h->pacientes[i] = aux;
-        SacodeHeap(h, i - 1);
+    struct heap p = *h;
+    Heapfy(&p);
+    for (i = p.tam; i > 1; i--){
+        aux = p.pacientes[1];
+        p.pacientes[1] = p.pacientes[i];
+        p.pacientes[i] = aux;
+        SacodeHeap(&p, i - 1);
     }
+    printf("\nPacientes ordenados : \n");
+    ImprimeHeap(&p);
 }

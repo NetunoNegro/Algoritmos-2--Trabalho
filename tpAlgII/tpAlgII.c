@@ -92,7 +92,9 @@ int main() {
                 getchar();
                 break;
             case 5:
-                HeapSort(&h); /* ta errado , vou arrumar*/
+                HeapSort(&h);
+                printf("\nPressione Enter para continuar...");
+                getchar();
                 break;
             case 6:
                 if(ChecaHeap(&h))
@@ -124,6 +126,5 @@ int main() {
                 break;
         }
     }
-
     return 0;
 }
